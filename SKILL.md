@@ -23,8 +23,16 @@ hongguo-drama-harness/
 ├── README.md
 ├── ROADMAP.md            # Skill 路线图
 ├── skills/               # Cursor Skills 源文件
-│   ├── hongguo-platform/
-│   └── drama-prompt-enrich/
+│   ├── hongguo-platform/     # 平台规范
+│   ├── drama-prompt-enrich/  # 内容：故事初稿
+│   ├── drama-outline/        # 内容：大纲
+│   ├── drama-episode/        # 内容：分集剧本
+│   ├── drama-qc/             # 内容：质检
+│   ├── draft-build/          # 工具：初稿编排
+│   ├── outline-build/        # 工具：大纲编排
+│   ├── episode-build/        # 工具：剧本编排
+│   ├── qc-build/             # 工具：质检编排
+│   └── tools/README.md       # 两层架构说明
 ├── prompts/              # Prompt 片段库
 └── projects/             # 具体剧本项目
     └── <剧名>/
@@ -46,11 +54,16 @@ git remote set-url origin https://github.com/evan-lei/hongguo-drama-harness.git
 
 ## 创作工作流
 
-用户有新想法时，按顺序加载 Skill：
+推荐用**工具 Skill**（用户 `@` 触发）：
 
-1. **`drama-prompt-enrich`** — 碎片输入 → 故事初稿，保存到 `projects/<剧名>/brief.md`
-2. **`hongguo-platform`** — 创作全程遵守平台规范与避坑
-3. （后续）`drama-outline` → `drama-episode` → `drama-qc`
+| 步骤 | 工具 Skill | 产出 |
+|------|------------|------|
+| 1 | `@draft-build` | `projects/<剧名>/brief.md` |
+| 2 | `@outline-build` | `projects/<剧名>/outline.md` |
+| 3 | `@episode-build` | `projects/<剧名>/episodes/ep*.md` |
+| 4 | `@qc-build` | `projects/<剧名>/qc-*.md` |
+
+每个工具 Skill 内部自动加载对应内容 Skill + `hongguo-platform`。
 
 ## 新建剧本项目
 

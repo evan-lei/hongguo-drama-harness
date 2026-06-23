@@ -12,26 +12,40 @@
 
 ## Harness 流水线
 
+两层架构：**工具 Skill**（用户 `@` 触发）编排 **内容 Skill**（模板与规则）。
+
 ```
-碎片想法 → [drama-prompt-enrich] 故事初稿
-         → [drama-outline] 故事/分集大纲（规划中）
-         → [drama-episode] 分集剧本（规划中）
-         → [drama-qc] 质检（规划中）
+@draft-build <碎片想法|.md>  → brief.md
+@outline-build <剧名>        → outline.md
+@episode-build <剧名> 第1-3集 → episodes/ep*.md
+@qc-build <剧名>             → qc-*.md
          → 红果创服平台投稿
 ```
 
-全程遵守 `hongguo-platform` 的平台要求与避坑清单。
+全程遵守 `hongguo-platform`。详见 [skills/tools/README.md](skills/tools/README.md)。
 
 ## 本地使用
 
 将 skills 链接到 Cursor 个人技能目录（一次性）：
 
 ```bash
-ln -sf /Users/user/Documents/hongguo-drama-harness/skills/hongguo-platform ~/.cursor/skills/hongguo-platform
-ln -sf /Users/user/Documents/hongguo-drama-harness/skills/drama-prompt-enrich ~/.cursor/skills/drama-prompt-enrich
+HARNESS=/Users/user/Documents/hongguo-drama-harness/skills
+SKILLS=~/.cursor/skills
+
+ln -sf $HARNESS/hongguo-platform $SKILLS/hongguo-platform
+ln -sf $HARNESS/drama-prompt-enrich $SKILLS/drama-prompt-enrich
+ln -sf $HARNESS/drama-outline $SKILLS/drama-outline
+ln -sf $HARNESS/drama-episode $SKILLS/drama-episode
+ln -sf $HARNESS/drama-qc $SKILLS/drama-qc
+ln -sf $HARNESS/draft-build $SKILLS/draft-build
+ln -sf $HARNESS/outline-build $SKILLS/outline-build
+ln -sf $HARNESS/episode-build $SKILLS/episode-build
+ln -sf $HARNESS/qc-build $SKILLS/qc-build
 ```
 
-在对话中提及「红果短剧」「故事初稿」「丰富 prompt」等关键词，Agent 会自动加载对应 Skill。
+用法：在对话中 `@draft-build` 并给出想法，例如：
+
+> `@draft-build` 女保镖伪装保姆潜入豪门，爽文向
 
 ## 相关链接
 
