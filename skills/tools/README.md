@@ -26,7 +26,7 @@ Harness 采用**两层架构**：
 
 全程叠加 `hongguo-platform` 规范。
 
-**投稿导出**：`python3 scripts/export-batch-upload.py projects/<剧名>` → `upload-batch.txt`（批量上传格式）
+**投稿导出**：`python3 scripts/export-batch-upload.py projects/<剧名>` → `upload-batch.txt`（批量上传格式；第零集自动拼装：剧名 + 梗概 + 题材与情绪 + 设定 + 核心设定 + 人物小传 + 剧本大纲）
 
 **`@qc-build` 默认自动修复**：发现必改项直接改源文件，无需用户逐步确认（见 `drama-qc`）。
 

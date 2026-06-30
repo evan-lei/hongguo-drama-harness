@@ -68,7 +68,7 @@ projects/<剧名>/episodes/ep2.md
 1. 已生成集数与文件路径
 2. 每集一句话摘要 + 结尾卡点
 3. 篇幅自检结果
-4. 批量上传：运行 `export-batch-upload.py` 生成 `upload-batch.txt`
+4. 批量上传：运行 `export-batch-upload.py` 生成 `upload-batch.txt`（第零集自动拼装：梗概 + 题材与情绪 + 设定 + 核心设定 + 人物 + 大纲）
 5. **下一步**：`@qc-build` 自动修订，或投稿创服批量上传
 
 ## 不做的事
